@@ -95,7 +95,7 @@ const FullScreenScrollVideo = () => {
       <video
         ref={videoRef}
         className="absolute top-0 left-0 w-full h-full object-cover"
-        src="/watermelon.mp4"
+        src="/water.mp4"
         muted
         playsInline
       />
