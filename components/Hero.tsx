@@ -9,11 +9,11 @@ import Image from "next/image";
 gsap.registerPlugin(ScrollTrigger);
 
 const FullScreenScrollVideo = () => {
-  const containerRef = useRef(null);
-  const videoRef = useRef(null);
-  const textRef = useRef(null);
-  const textRef1 = useRef(null);
-  const featureSectionRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const textRef = useRef<HTMLHeadingElement>(null);
+  const textRef1 = useRef<HTMLHeadingElement>(null);
+  const featureSectionRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
@@ -25,7 +25,7 @@ const FullScreenScrollVideo = () => {
 
       // Video scroll animation
       gsap.to(video, {
-        currentTime: video.duration || 1,
+        currentTime: video?.duration || 1,
         ease: "power1.out",
         scrollTrigger: {
           trigger: container,
