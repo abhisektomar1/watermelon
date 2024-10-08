@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar"
 import Hero from "@/components/Hero"
-import Features from "@/components/Features";
+// import Features from "@/components/Features";
 
 
 export default function Home() {
@@ -8,7 +8,7 @@ export default function Home() {
     <main className="bg-black h-screen w-full">
         <Navbar />
         <Hero />
-        <Features />
+        {/* <Features /> */}
       </main>
   );
 }
