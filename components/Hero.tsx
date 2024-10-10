@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -14,6 +14,16 @@ const FullScreenScrollVideo = () => {
   const textRef = useRef<HTMLHeadingElement>(null);
   const textRef1 = useRef<HTMLHeadingElement>(null);
   const featureSectionRef = useRef<HTMLDivElement>(null);
+
+  const [videoLoaded, setVideoLoaded] = useState(false);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      video.preload = "metadata";
+      video.addEventListener("loadedmetadata", () => setVideoLoaded(true));
+    }
+  }, []);
 
   useGSAP(
     () => {
@@ -92,10 +102,11 @@ const FullScreenScrollVideo = () => {
       ref={containerRef}
       className="relative h-screen w-full overflow-hidden"
     >
+       {!videoLoaded && <div className="absolute inset-0 bg-gray-200 flex items-center justify-center">Loading...</div>}
       <video
         ref={videoRef}
         className="absolute top-0 left-0 w-full h-full object-cover"
-        src="/water.mp4"
+        src="/o/water.mp4"
         muted
         playsInline
       />
